@@ -11,7 +11,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pre-commit": "lint-staged"
+    "pre-commit": "echo 'pre-commited'",
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
