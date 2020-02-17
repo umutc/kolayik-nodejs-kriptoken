@@ -4,9 +4,11 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ObjectIdColumn} from 'typeorm';
+  ObjectIdColumn,
+  OneToMany} from 'typeorm';
 
 import is from 'utils/validation';
+import UserCurrency from './UserCurrency';
 
 @Entity()
 class User extends BaseEntity {
@@ -37,6 +39,12 @@ class User extends BaseEntity {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
+
+  @OneToMany(
+    () => UserCurrency,
+    currency => currency.user,
+  )
+  currencies: UserCurrency[];
 
 }
 

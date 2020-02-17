@@ -1,10 +1,20 @@
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
-import { User, UserToken, UserWallet, UserTransection, Currency } from 'entities';
+import { User, UserToken, UserWallet, UserTransection, Currency, UserCurrency } from 'entities';
 import { EntityNotFoundError, BadUserInputError } from 'errors';
 import { generateErrors } from 'utils/validation';
 
-type EntityConstructor = typeof User | typeof UserToken | typeof UserWallet | typeof UserTransection | typeof Currency;
-type EntityInstance = User | UserToken | UserWallet | UserTransection | Currency;;
+type EntityConstructor = typeof User
+  | typeof UserToken
+  | typeof UserWallet
+  | typeof UserTransection
+  | typeof Currency
+  | typeof UserCurrency;
+type EntityInstance = User
+  | UserToken
+  | UserWallet
+  | UserTransection
+  | Currency
+  | UserCurrency;
 
 const entities: { [key: string]: EntityConstructor } = { User };
 

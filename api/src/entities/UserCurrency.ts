@@ -4,17 +4,18 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ObjectIdColumn} from 'typeorm';
+  ObjectIdColumn,
+  ManyToOne
+} from 'typeorm';
 
 import is from 'utils/validation';
+import User from './User';
 
 @Entity()
-class UserTransection extends BaseEntity {
+class UserCurrency extends BaseEntity {
   static validations = {
-    userId: [is.required()],
-    type: [is.required()],
-    amount: [is.required()],
-    value: [is.required()],
+    type: [is.required(), is.maxLength(100)],
+    value: [is.required(), is.maxLength(100)]
   };
 
   @ObjectIdColumn()
@@ -22,24 +23,24 @@ class UserTransection extends BaseEntity {
 
   @Column('varchar')
   userId: string;
-
+  
   @Column('varchar')
   type: string;
 
   @Column('float')
-  amount: number;
-
-  @Column('float')
-  value: number;
-
-  @Column('varchar')
-  transectionType: string;
+  value: number
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
+
+  @ManyToOne(
+    () => User,
+    user => user.currencies,
+  )
+  user: User;
 }
 
-export default UserTransection;
+export default UserCurrency;

@@ -15,9 +15,10 @@ export const login = catchErrors(async (_req, res) => {
   });
 
   if (user) {
-    const signedToken = signToken({ user });
+    const signedToken = signToken({ sub: user._id });
     const token = await UserToken.create({ userId: user._id, string: signedToken }).save();
     res.respond({ token });
+  } else {
+    res.respond({ error: 'No user found' });
   }
-  res.respond({ error: 'No user found' });
 });

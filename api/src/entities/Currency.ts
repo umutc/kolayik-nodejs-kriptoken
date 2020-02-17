@@ -4,7 +4,8 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ObjectIdColumn} from 'typeorm';
+  ObjectIdColumn,
+} from 'typeorm';
 
 import is from 'utils/validation';
 
