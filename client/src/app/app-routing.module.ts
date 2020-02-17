@@ -1,16 +1,32 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RoutesInterceptor } from './core/routes-interceptor.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'profile/self',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: 'registration',
+    loadChildren: () => import('./modules/registration/registration.module').then( m => m.RegistrationModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then( m => m.LoginModule)
+  },
+  {
+    path: 'currencies',
+    loadChildren: () => import('./modules/currencies/currencies.module').then( m => m.CurrenciesModule),
+    canActivate: [RoutesInterceptor],
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then( m => m.ProfileModule),
+    canActivate: [RoutesInterceptor],
+    runGuardsAndResolvers: 'always'
+  },
 ];
 
 @NgModule({

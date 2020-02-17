@@ -6,8 +6,8 @@
   "description": "An Ionic project",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --output-path=./../api/www",
+    "start": "ng serve --proxy-config=proxy.conf.json",
+    "build": "ng build --output-path=./../api/www --prod --delete-output-path",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,43 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  public appPages = [
-    {
-      title: 'Profile',
-      url: '/folder/Profile',
-      icon: 'person'
-    },
-    {
-      title: 'Register',
-      url: '/folder/Register',
-      icon: 'person-add'
-    },
-    {
-      title: 'Login',
-      url: '/folder/Login',
-      icon: 'log-in'
-    },
-    {
-      title: 'Trading',
-      url: '/folder/Trading',
-      icon: 'swap-horizontal'
-    },
-    {
-      title: 'Currencies',
-      url: '/folder/Currencies',
-      icon: 'trending-up'
-    },
-    {
-      title: 'Wallet',
-      url: '/folder/Wallet',
-      icon: 'cash'
-    },
-    {
-      title: 'Logout',
-      url: '/folder/Logout',
-      icon: 'log-out'
-    }
-  ];
+  public appPages = [ ];
   public labels = [
     'BTC',
     'ETH',
@@ -57,6 +22,7 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
+    public auth: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
