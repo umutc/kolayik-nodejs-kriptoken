@@ -2,6 +2,8 @@
 
 The API codebase is fairly simple and should be easy enough to understand.
 
+[Postman Documentation of Api](https://documenter.getpostman.com/view/2342585/SzKQxzmo?version=latest)
+
 <br>
 
 | File or folder    | Description                                                                                                                                                                                                                 |
