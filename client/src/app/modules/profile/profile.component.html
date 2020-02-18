@@ -40,7 +40,7 @@
             <ion-card-content *ngIf="selfTransectionList$ | async as list">
                 <ng-container *ngIf="list.length > 0; else noTransection;">
                     <ion-item *ngFor="let item of list;">
-                        <ion-label>{{ item.type }} {{ item.value }} BTC</ion-label>
+                        <ion-label>{{ item.transectionType }} amount of {{ item.amount }} {{ item.type }} for {{ item.value }} BTC</ion-label>
                     </ion-item>
                 </ng-container>
                 <ng-template #noTransection>

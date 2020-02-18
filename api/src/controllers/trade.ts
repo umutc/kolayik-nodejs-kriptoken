@@ -29,7 +29,10 @@ export const buy = catchErrors(async (req, res) => {
       return;
     }
 
-    const userCurrencyWantToBuyAmountBTCAndCommission = userCurrencyWantToBuyAmount * allCurrencyBTC.value * 100.0025;
+    const userCurrencyWantToBuyAmountBTCAndCommission = userCurrencyWantToBuyAmount * allCurrencyWantToBuy.value * 1.0025;
+    console.log('user want to buy', allCurrencyWantToBuy);
+    console.log('amount of ', userCurrencyWantToBuyAmount);
+    console.log('for ', userCurrencyWantToBuyAmountBTCAndCommission, 'BTC');
     if (userCurrencyWantToBuyAmountBTCAndCommission > userCurrencyBTC.value) {
       res.respond({ error: 'You dont have enought BTC' });
       return;

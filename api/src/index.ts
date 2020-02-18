@@ -8,7 +8,6 @@ import createDatabaseConnection from 'database/createConnection';
 import { addRespondToResponse } from 'middleware/response';
 import { authenticateUser } from 'middleware/authentication';
 import { handleError } from 'middleware/errors';
-import { RouteNotFoundError } from 'errors';
 
 import { attachPublicRoutes, attachPrivateRoutes } from './routes';
 
@@ -26,17 +25,17 @@ const initializeExpress = (): void => {
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded());
-  app.use(express.static('www'));
+  app.use('/', express.static('www'));
 
   app.use(addRespondToResponse);
 
   attachPublicRoutes(app);
 
-  app.use('/', authenticateUser);
+  app.use('/api/v1/', authenticateUser);
 
   attachPrivateRoutes(app);
 
-  app.use((req, _res, next) => next(new RouteNotFoundError(req.originalUrl)));
+  app.use((_req, res, _next) => res.redirect('/'));
   app.use(handleError);
 
   app.listen(process.env.PORT || 3000);
