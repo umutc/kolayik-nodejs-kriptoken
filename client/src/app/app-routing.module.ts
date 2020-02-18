@@ -5,8 +5,8 @@ import { RoutesInterceptor } from './core/routes-interceptor.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'profile/self',
-    pathMatch: 'full'
+    redirectTo: 'trading/self',
+    pathMatch: 'full',
   },
   {
     path: 'registration',
@@ -24,6 +24,12 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./modules/profile/profile.module').then( m => m.ProfileModule),
+    canActivate: [RoutesInterceptor],
+    runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'trading',
+    loadChildren: () => import('./modules/trading/trading.module').then( m => m.TradingModule),
     canActivate: [RoutesInterceptor],
     runGuardsAndResolvers: 'always'
   },

@@ -1,0 +1,106 @@
+div#container {
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #f5f6f9;
+  min-width: 360px;
+  .table-col-currency {
+    width: 140px;
+  }
+}
+
+.table thead {
+  cursor: pointer;
+}
+.table thead tr th {
+  font-weight: bold;
+  padding: 12px 30px;
+  padding-left: 42px;
+}
+.table thead tr th span {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+.table tbody tr {
+  color: #555;
+}
+.table tbody tr td,
+.table thead tr th {
+  text-align: left;
+  padding: 15px 10px;
+}
+.table tbody tr td.lalign {
+  text-align: left;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f5f6f9;
+}
+
+.self-currency-list {
+  display: grid;
+  width: 100%;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 24px;
+  margin-bottom: 32px;
+}
+
+.self-currency-list-item {
+  display: grid;
+  padding: 24px 16px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  .self-currency-list-item-header {
+    display: grid;
+    grid-template-columns: 24px auto;
+    padding-left: 8px;
+    height: 48px;
+    .self-currency-list-item-header-icon {
+      line-height: 28px;
+    }
+    .self-currency-list-item-header-title {
+      line-height: 24px;
+    }
+  }
+  .self-currency-list-item-content {
+    height: 48px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .self-currency-list-item-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    .self-currency-list-item-actions-sell,
+    .self-currency-list-item-actions-buy {
+      height: 42px;
+      border: 1px solid #3171e0;
+      display: grid;
+      border-radius: 12px;
+      align-content: center;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
+
+.self-currency-list-item:hover {
+  border: 1px solid #3171e0;
+}
+
+.self-currency-list-item:hover,
+.self-currency-list-item-actions-sell:hover,
+.self-currency-list-item-actions-buy:hover {
+    -webkit-box-shadow: 0 0.35em 1.175em rgba(2,8,20,.1), 0 0.175em 0.5em rgba(2,8,20,.08);
+    box-shadow: 0 0.35em 1.175em rgba(2,8,20,.1), 0 0.175em 0.5em rgba(2,8,20,.08);
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+}

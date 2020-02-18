@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <div class="custom-title">
+                <span>Hello {{ (self$ | async)?.name }} {{ (self$ | async)?.surname }}</span>
+                <div class="actions" (click)="auth.unauthenticate()">
+                    <span class="actions-title">Sign Out</span>
+                    <ion-button size="small" fill="clear" color="danger" mode="md">
+                        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+                    </ion-button>
+                </div>
+            </div>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div id="container">
+        <div class="self-currency-list">
+            <div class="self-currency-list-item" *ngFor="let item of selfCurrencyList$ | async;">
+                <div class="self-currency-list-item-header">
+                    <div class="self-currency-list-item-header-icon"><ion-icon name="logo-bitcoin"></ion-icon></div>
+                    <div class="self-currency-list-item-header-title">{{ item.type }}</div>
+                </div>
+                <div class="self-currency-list-item-content">
+                    <div class="self-currency-list-item-content-text">{{ item.value }}</div>
+                </div>
+                <div class="self-currency-list-item-actions">
+                    <div class="self-currency-list-item-actions-sell">SELL</div>
+                    <div class="self-currency-list-item-actions-buy">BUY</div>
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="table-col-currency">Currency</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of currencyList$ | async;">
+                        <td class="table-col-currency">{{ item.type }}</td>
+                        <td>{{ item.value }} BTC</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ion-content>

@@ -21,11 +21,11 @@ export class AuthService {
 
   public authenticate(token: string) {
     localStorage.setItem('token', token);
-    this.router.navigateByUrl('/');
+    this.router.navigate(['/trading', 'self']);
     this.tokenChange.next(token);
     setTimeout(() => {
       window.location.reload();
-    }, 0);
+    }, 10);
   }
 
   public getToken(): string | null {
