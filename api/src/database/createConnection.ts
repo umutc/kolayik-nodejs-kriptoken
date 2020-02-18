@@ -5,8 +5,7 @@ import * as entities from 'entities';
 const createDatabaseConnection = (): Promise<Connection> =>
   createConnection({
     type: 'mongodb',
-    database: 'mgdb',
-    port: 27017,
+    url: process.env.MONGOLAB_URI || "mongodb://localhost:27017/mgdb",
     entities: Object.values(entities),
     synchronize: true,
     useUnifiedTopology: true

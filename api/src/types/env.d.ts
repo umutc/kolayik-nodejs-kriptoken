@@ -6,5 +6,6 @@ declare namespace NodeJS {
     DB_PASSWORD: string;
     DB_DATABASE: string;
     JWT_SECRET: string;
+    MONGOLAB_URI: string;
   }
 }
