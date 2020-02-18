@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title>
             <div class="custom-title">
-                <span>Hello {{ (self$ | async)?.name }} {{ (self$ | async)?.surname }}</span>
+                <span>Hello {{ (self$ | async)?.name }}</span>
                 <div class="actions" (click)="auth.unauthenticate()">
                     <span class="actions-title">Sign Out</span>
                     <ion-button size="small" fill="clear" color="danger" mode="md">
@@ -19,18 +19,29 @@
 
 <ion-content [fullscreen]="true">
     <div id="container">
+        <ion-card style="margin: 0;margin-bottom: 16px;">
+            <ion-card-header>
+                <ion-card-title>
+                    <ion-icon name="logo-bitcoin"></ion-icon> {{ selfCurrencyListBTC$ | async }}
+                </ion-card-title>
+            </ion-card-header>
+        </ion-card>
         <div class="self-currency-list">
             <div class="self-currency-list-item" *ngFor="let item of selfCurrencyList$ | async;">
                 <div class="self-currency-list-item-header">
-                    <div class="self-currency-list-item-header-icon"><ion-icon name="logo-bitcoin"></ion-icon></div>
+                    <div class="self-currency-list-item-header-icon">
+                        <ion-icon name="triangle"></ion-icon>
+                    </div>
                     <div class="self-currency-list-item-header-title">{{ item.type }}</div>
                 </div>
                 <div class="self-currency-list-item-content">
                     <div class="self-currency-list-item-content-text">{{ item.value }}</div>
                 </div>
                 <div class="self-currency-list-item-actions">
-                    <div class="self-currency-list-item-actions-sell">SELL</div>
-                    <div class="self-currency-list-item-actions-buy">BUY</div>
+                    <div class="self-currency-list-item-actions-sell"
+                        (click)="presentModal({ action: 'sell', type: item.type })">SELL</div>
+                    <div class="self-currency-list-item-actions-buy"
+                        (click)="presentModal({ action: 'buy', type: item.type })">BUY</div>
                 </div>
             </div>
         </div>

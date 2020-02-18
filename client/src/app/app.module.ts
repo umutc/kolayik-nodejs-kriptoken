@@ -16,6 +16,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './core/token-interceptor.service';
 import { CurrenciesService, CurrencyListResolver } from './core/currencies.service';
 import { UserService, UserSelfResolver, UserSelfCurrencyListResolver, UserSelfTransectionListResolver } from './core/user.service';
+import { SharedService } from './core/shared.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,6 +47,7 @@ import { UserService, UserSelfResolver, UserSelfCurrencyListResolver, UserSelfTr
     UserSelfResolver,
     UserSelfCurrencyListResolver,
     UserSelfTransectionListResolver,
+    SharedService
   ],
   bootstrap: [AppComponent]
 })

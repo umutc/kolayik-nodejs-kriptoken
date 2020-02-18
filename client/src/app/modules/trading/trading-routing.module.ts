@@ -14,7 +14,8 @@ const routes: Routes = [
       self: UserSelfResolver,
       selfCurrencyList: UserSelfCurrencyListResolver,
       selfTransectionList: UserSelfTransectionListResolver,
-    }
+    },
+    runGuardsAndResolvers: "always"
   }
 ];
 
