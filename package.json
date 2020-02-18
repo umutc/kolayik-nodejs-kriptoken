@@ -1,6 +1,6 @@
 {
   "name": "kolayik-nodejs-kriptoken",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "This is a basic digital currency app written with nodejs/express and angular for kolayik interview of Umut ÇELİK",
   "main": "index.js",
   "repository": "git@github.com:kolayik/nodejs-kriptoken.git",

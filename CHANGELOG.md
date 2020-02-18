@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/kolayik/nodejs-kriptoken/compare/v1.3.0...v1.4.0) (2020-02-18)
+
+
+### Features
+
+* **default root:** add the static files as domain root ([c55d9a3](https://github.com/kolayik/nodejs-kriptoken/commit/c55d9a3bf9c7f28f6bd0780577f442a2a46018a7))
+* **trade page:** add buy/sell actions ([e18be84](https://github.com/kolayik/nodejs-kriptoken/commit/e18be845ad5280f3c1b5f2bc295a14bd72e171ef))
+* **trading page:** add the page and apply the css same as mochup ([cb3021d](https://github.com/kolayik/nodejs-kriptoken/commit/cb3021d3aaf65b288e302f0a464d59cfefcc9b0e))
+
+
+### Bug Fixes
+
+* **api:** fix ratios ([cb345bf](https://github.com/kolayik/nodejs-kriptoken/commit/cb345bf85841a4227c301279b32f616eeee563fa))
+
 ## [1.3.0](https://github.com/kolayik/nodejs-kriptoken/compare/v1.2.0...v1.3.0) (2020-02-17)
 
 
