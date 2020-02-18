@@ -6,7 +6,7 @@
   "scripts": {
     "start": "JWT_SECRET=kolayik nodemon --exec ts-node --files src/index.ts",
     "start:test": "cross-env NODE_ENV='test' DB_DATABASE='test' npm start",
-    "start:production": "pm2 start --name 'cryp-and-crype' node -- -r ./tsconfig-paths.js build/index.js",
+    "start:production": "JWT_SECRET=kolayik pm2 start --name 'cryp-and-crype' node -- -r ./tsconfig-paths.js build/index.js",
     "build": "cd src && tsc",
     "pre-commit": "echo 'pre-commited the api'",
     "test": "echo 'all is well'"
