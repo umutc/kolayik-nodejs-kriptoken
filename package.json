@@ -10,6 +10,7 @@
   "scripts": {
     "pre-commit": "cd api && npm run pre-commit && cd ../client && npm run pre-commit",
     "install-dependencies": "npm install && cd api && npm install && cd ../client && npm install",
+    "heroku-prebuild": "cd api && npm install && cd ../client && npm install && cd ..",
     "build": "cd api && npm run build && cd ../client && npm run build",
     "start": "cd api && npm run start:production",
     "stop": "cd api && npm run stop:production",

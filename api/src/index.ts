@@ -39,6 +39,7 @@ const initializeExpress = (): void => {
   app.use(handleError);
 
   app.listen(process.env.PORT || 3000);
+  console.log('process.env.PORT:', process.env.PORT);
 };
 
 const initializeApp = async (): Promise<void> => {
