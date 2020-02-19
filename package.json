@@ -12,6 +12,7 @@
     "install-dependencies": "npm install && cd api && npm install && cd ../client && npm install",
     "build": "cd api && npm run build && cd ../client && npm run build",
     "start": "cd api && npm run start:production",
+    "stop": "cd api && npm run stop:production",
     "release": "standard-version"
   },
   "devDependencies": {

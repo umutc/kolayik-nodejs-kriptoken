@@ -7,6 +7,7 @@
     "start": "JWT_SECRET=kolayik nodemon --exec ts-node --files src/index.ts",
     "start:test": "cross-env NODE_ENV='test' DB_DATABASE='test' npm start",
     "start:production": "PORT=80 JWT_SECRET=kolayik pm2 start --name 'cryp-and-crype' node -- -r ./tsconfig-paths.js build/index.js",
+    "stop:production": "pm2 delete cryp-and-crype",
     "build": "cd src && tsc",
     "pre-commit": "echo 'pre-commited the api'",
     "test": "echo 'all is well'"
