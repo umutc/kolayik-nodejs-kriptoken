@@ -1,0 +1,65 @@
+{
+  "name": "cryp-and-crype",
+  "version": "1.0.0",
+  "author": "Ivor Reic",
+  "license": "MIT",
+  "scripts": {
+    "start": "JWT_SECRET=kolayik nodemon --exec ts-node --files src/index.ts",
+    "start:test": "cross-env NODE_ENV='test' DB_DATABASE='test' npm start",
+    "start:production": "JWT_SECRET=kolayik node -r ./tsconfig-paths.js build/index.js",
+    "start:production:pm2": "JWT_SECRET=kolayik pm2 start --name 'cryp-and-crype' node -- -r ./tsconfig-paths.js build/index.js;",
+    "stop:production": "pm2 delete cryp-and-crype",
+    "build": "cd src && tsc",
+    "pre-commit": "echo 'pre-commited the api'",
+    "test": "echo 'all is well'"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "faker": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "module-alias": "^2.2.2",
+    "mongodb": "^3.5.3",
+    "pg": "^7.18.1",
+    "reflect-metadata": "^0.1.13",
+    "striptags": "^3.1.1",
+    "typeorm": "^0.2.22",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/faker": "^4.1.9",
+    "@types/jsonapi-serializer": "^3.6.2",
+    "@types/jsonwebtoken": "^8.3.7",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.27",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "lint-staged": "^9.5.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+   
+  },
+  "_moduleDirectories": [
+    "src"
+  ],
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "kolayik-nodejs-kriptoken",
+  "version": "1.4.0",
+  "description": "This is a basic digital currency app written with nodejs/express and angular for kolayik interview of Umut ÇELİK",
+  "main": "index.js",
+  "repository": "git@github.com:kolayik/nodejs-kriptoken.git",
+  "author": "Umut ÇELİK <mail@umutcelik.com.tr>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "pre-commit": "cd api && npm run pre-commit && cd ../client && npm run pre-commit",
+    "install-dependencies": "npm install && cd api && npm install && cd ../client && npm install",
+    "heroku-prebuild": "cd api && npm install && cd ../client && npm install && cd ..",
+    "build": "cd api && npm run build && cd ../client && npm run build",
+    "start": "cd api && npm run start:production",
+    "stop": "cd api && npm run stop:production",
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "standard-version": "^7.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  },
+  "dependencies": {
+    "pm2": "^4.2.3"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

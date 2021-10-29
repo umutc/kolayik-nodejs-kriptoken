@@ -1,0 +1,13 @@
+<div class="wrapper" [formGroup]="form">
+  <div class="content">
+    <img src="./../../../assets/kolayik_logo_blue.png" alt="Kolay IK ">
+    <ion-input mode="md" placeholder="Name" formControlName="name"></ion-input>
+    <ion-input mode="md" placeholder="Surname" formControlName="surname"></ion-input>
+    <ion-input mode="md" placeholder="E-mail" formControlName="email" inputmode="email"></ion-input>
+    <ion-input mode="md" placeholder="Password" formControlName="password" inputmode="password"></ion-input>
+    <div class="actions">
+      <ion-button [routerLink]="['/login', 'login']" fill="outline" color="tertiary">Back To Login</ion-button>
+      <ion-button (click)="submit()" type="submit" color="primary" [disabled]="form.invalid">Register</ion-button>
+    </div>
+  </div>
+</div>

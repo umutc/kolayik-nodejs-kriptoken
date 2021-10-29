@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Profile</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <div id="container">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>{{ (self$ | async)?.name }} {{ (self$ | async)?.surname }}</ion-card-title>
+                <ion-card-subtitle>{{ (self$ | async)?.email }} ({{ (self$ | async)?.createdAt | date }})</ion-card-subtitle>
+            </ion-card-header>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Wallet</ion-card-title>
+                <ion-card-subtitle>Your crypto currency wallet are below</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item *ngFor="let item of selfCurrencyList$ | async;">
+                    <ion-label>{{ item.type }} {{ item.value }} BTC</ion-label>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Transections</ion-card-title>
+                <ion-card-subtitle>Your crypto currency transections are below</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content *ngIf="selfTransectionList$ | async as list">
+                <ng-container *ngIf="list.length > 0; else noTransection;">
+                    <ion-item *ngFor="let item of list;">
+                        <ion-label>{{ item.transectionType }} amount of {{ item.amount }} {{ item.type }} for {{ item.value }} BTC</ion-label>
+                    </ion-item>
+                </ng-container>
+                <ng-template #noTransection>
+                    <ion-item>
+                        <ion-label>You have no transection yet! Start to trade now.</ion-label>
+                    </ion-item>
+                </ng-template>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
